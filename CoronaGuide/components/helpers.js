@@ -31,15 +31,15 @@ const helpers = {
           <Text caption light>Deaths</Text>
         </Block>
 
-        <Block flex={1} row space="between" style={{ paddingHorizontal: 20, marginTop: 0}}>
-            <Block center>
-              <Text semibold>Live Updates</Text>
+        <Block flex={1} row space="between" style={{ paddingHorizontal: 30, marginTop: 0}}>
+            <Block card shadow color="gray2" style={styles.header1}>
+              <Text primary semibold style={{ marginHorizontal: 5, textAlign: 'center', }}>Live Updates</Text>
             </Block>
             <Block center>
-              <Text primary semibold>Donate</Text>
+              <Text primary semibold style={{ marginHorizontal: 5, textAlign: 'center', }}>Donate To China</Text>
             </Block>
             <Block center>
-              <Text primary semibold>Dos and Donts</Text>
+              <Text primary semibold style={{ marginHorizontal: 5, textAlign: 'center', }}>Dos and Dont</Text>
             </Block>
         </Block>
 
@@ -99,6 +99,9 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingVertical: 45,
     zIndex: 1,
+  },
+  header1: {
+    zIndex: -1,
   },
   articles: {
       marginTop: -50,
