@@ -1,6 +1,9 @@
 import {Block, Text, ArticlesDetail} from '../components';
 import React from 'react';
-import {StyleSheet, ScrollView, FlatList, View} from 'react-native';
+import {StyleSheet,
+        ScrollView, FlatList, View,
+        TouchableOpacity, Image} from 'react-native';
+
 
 const helpers = {
   renderHeader: function(confirmed, deaths) {
@@ -13,6 +16,7 @@ const helpers = {
       </Block>
 
       <Block card shadow color="white" style={styles.header}>
+
         <Block row space="between" style={{ paddingHorizontal: 30, }}>
             <Block flex={false} row center >
               <Text h1 semibold>{confirmed}</Text>
@@ -22,13 +26,21 @@ const helpers = {
             </Block>
         </Block>
 
-        <Block flex={0.5} center row space="between" style={{ paddingHorizontal: 30, marginTop: 20, marginBottom: 20,}}>
+        <Block flex={0.5} center row space="between" style={{ paddingHorizontal: 30, marginTop: 25, marginBottom: 20,}}>
           <Text caption light>Confirmed</Text>
           <Text caption light>Deaths</Text>
         </Block>
 
-        <Block style={{ }}>
-          <Text>View Full Statistics</Text>
+        <Block flex={1} row space="between" style={{ paddingHorizontal: 20, marginTop: 0}}>
+            <Block center>
+              <Text semibold>Live Updates</Text>
+            </Block>
+            <Block center>
+              <Text primary semibold>Donate</Text>
+            </Block>
+            <Block center>
+              <Text primary semibold>Dos and Donts</Text>
+            </Block>
         </Block>
 
       </Block>
@@ -38,28 +50,43 @@ const helpers = {
   )
   },
 
+  renderArticle: function(item) {
+    return (
+      <TouchableOpacity activeOpacity={0.8}>
+        <Block row card shadow color="white" style={styles.article}>
+          <Block flex={0.5}>
+            <Image style={styles.image} source={{ uri: item.urlToImage }} />
+          </Block>
+          <Block flex={2} column middle>
+            <Text>{item.title}</Text>
+          </Block>
+        </Block>
+      </TouchableOpacity>
+    );
+  },
+
   renderArticles: function(articles) {
 
     return(
       <Block column flex={0.8} color="gray2" style={styles.articles}>
-        <Block row space="between">
+
+        <Block row space="between" style={{ paddingHorizontal: 20, marginBottom: -10 }}>
           <Text light>Latest News</Text>
-          <Text semibold>View All</Text>
+          <TouchableOpacity activeOpacity={0.8}>
+            <Text semibold>View All</Text>
+          </TouchableOpacity>
         </Block>
 
-        <ScrollView>
-
+        <Block row flex={8.0}>
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={articles}
           renderItem={({ item }) =>
-            <Block card shadow>
-              <Text>{item.title}</Text>
-            </Block>
+              this.renderArticle(item)
           }
           keyExtractor={item => item.url}
           />
-
-        </ScrollView>
+        </Block>
 
       </Block>
     );
@@ -78,7 +105,18 @@ const styles = StyleSheet.create({
       paddingTop: 65,
       paddingHorizontal: 15,
       zIndex: -1,
-  }
+  },
+  article: {
+    padding: 10,
+    marginBottom: 15
+  },
+  image: {
+    height: 40,
+    width: 40,
+    borderRadius: 40,
+    marginVertical: 5,
+    overflow: "hidden",
+  },
 })
 
 export default helpers;
