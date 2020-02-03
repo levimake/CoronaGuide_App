@@ -1,6 +1,6 @@
 import {Block, Text} from '../components';
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
 
 const helpers = {
   renderHeader: function() {
@@ -11,25 +11,30 @@ const helpers = {
           <Text h3 white>Stay Safe From Corona</Text>
         </Block>
       </Block>
-      <Block card shadow color="white" style={styles.header}>
-        <Block flex={2} row space="between" style={{ paddingHorizontal: 30, }}>
 
-            <Block row center flex={false}>
+      <Block card shadow color="white" style={styles.header}>
+        <Block row space="between" style={{ paddingHorizontal: 30, }}>
+            <Block flex={false} row center >
               <Text h1 semibold>14,637</Text>
             </Block>
-
-            <Block row center flex={false}>
+            <Block flex={false} row center>
               <Text h1 primary semibold>305</Text>
             </Block>
         </Block>
 
-        <Block row space="between" style={{ paddingHorizontal: 30, }}>
+        <Block flex={0.5} center row space="between" style={{ paddingHorizontal: 30, marginTop: 20, marginBottom: 20,}}>
           <Text caption light>Confirmed</Text>
           <Text caption light>Deaths</Text>
         </Block>
 
+        <Block style={{ }}>
+          <Text>View Full Statistics</Text>
+        </Block>
+
       </Block>
     </Block>
+
+
   )
   },
 
@@ -40,6 +45,11 @@ const helpers = {
           <Text light>Latest News</Text>
           <Text semibold>View All</Text>
         </Block>
+
+        <ScrollView contentContainerStyle={{ flex: 1 }}>
+
+        </ScrollView>
+
       </Block>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 import { Block, Text } from '../../components';
 import * as theme from '../../theme';
