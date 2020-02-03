@@ -1,36 +1,39 @@
 {
-"count": {
-		"total_confirmed": "17,348",
-		"toal_deaths": "362",
-		"total_recovered": "487",
-	}
-"count_by_country": {
-		"Mainland China": "17,167",
-		"Japan": "20",
-		"Thailand": "19",
-		"Singapore": "18",
-		"Hong Kong": "15",
-		"South Korea": "15",
-		"Australia": "12",
-		"Germany": "10",
-		"Taiwan": "10",
-		"US": "9",
-		"Macau": "8",
-		"Malaysia": "8",
-		"France": "6",
-		"Vietnam": "6",
-		"United Arab Emirates": "5",
-		"Canada": "4",
-		"Italy": "2",
-		"Russia": "2",
-		"Philippiness": "2",
-		"India": "2",
-		"UK": "2",
-		"Nepal": "1",
-		"Cambodia": "1",
-		"Spain": "1",
-		"Finland": "1",
-		"Sweden": "1",
-		"Sri Lanka": "1",
-	}
+    
+    "count": {
+	    "total_confirmed": "17,348",
+	    "toal_deaths": "362",
+	    "total_recovered": "487"  
+    },
+    
+  "count_by_country": 
+    {
+ 	"Mainland China": "17,167",
+	"Japan": "20",
+	"Thailand": "19",
+	"Singapore": "18",
+	"Hong Kong": "15",
+	"South Korea": "15",
+	"Australia": "12",
+	"Germany": "10",
+	"Taiwan": "10",
+	"US": "9",
+	"Macau": "8",
+	"Malaysia": "8",
+	"France": "6",
+	"Vietnam": "6",
+	"United Arab Emirates": "5",
+	"Canada": "4",
+	"Italy": "2",
+	"Russia": "2",
+	"Philippiness": "2",
+	"India": "2",
+	"UK": "2",
+	"Nepal": "1",
+	"Cambodia": "1",
+	"Spain": "1",
+	"Finland": "1",
+	"Sweden": "1",
+	"Sri Lanka": "1"           		
+    }
 }

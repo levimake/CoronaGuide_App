@@ -24,7 +24,7 @@ const HomeScreen = () => {
     return null;
   }
 
-  console.log(result);
+  console.log(result.count);
 
   return  (
     <SafeAreaView style={styles.safe} forceInset={{ top: 'always' }}>
