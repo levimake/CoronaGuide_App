@@ -3,7 +3,7 @@ import React from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
 
 const helpers = {
-  renderHeader: function() {
+  renderHeader: function(confirmed, deaths) {
     return (
     <Block column flex={0.36} style={{ paddingHorizontal: 15, }}>
       <Block flex={false} row style={{ paddingVertical: 15, }}>
@@ -15,10 +15,10 @@ const helpers = {
       <Block card shadow color="white" style={styles.header}>
         <Block row space="between" style={{ paddingHorizontal: 30, }}>
             <Block flex={false} row center >
-              <Text h1 semibold>14,637</Text>
+              <Text h1 semibold>{confirmed}</Text>
             </Block>
             <Block flex={false} row center>
-              <Text h1 primary semibold>305</Text>
+              <Text h1 primary semibold>{deaths}</Text>
             </Block>
         </Block>
 

@@ -1,10 +1,10 @@
 {
 "count": {
-		"total confirmed": "17,348",
-		"toal deaths": "362",
-		"total recovered": "487",
+		"total_confirmed": "17,348",
+		"toal_deaths": "362",
+		"total_recovered": "487",
 	}
-"count by country": {
+"count_by_country": {
 		"Mainland China": "17,167",
 		"Japan": "20",
 		"Thailand": "19",
