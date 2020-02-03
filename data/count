@@ -1,39 +1,95 @@
 {
-    
-    "count": {
-	    "total_confirmed": "17,348",
-	    "total_deaths": "362",
-	    "total_recovered": "487"  
-    },
-    
-  "count_by_country": 
-    {
- 	"Mainland China": "17,167",
-	"Japan": "20",
-	"Thailand": "19",
-	"Singapore": "18",
-	"Hong Kong": "15",
-	"South Korea": "15",
-	"Australia": "12",
-	"Germany": "10",
-	"Taiwan": "10",
-	"US": "9",
-	"Macau": "8",
-	"Malaysia": "8",
-	"France": "6",
-	"Vietnam": "6",
-	"United Arab Emirates": "5",
-	"Canada": "4",
-	"Italy": "2",
-	"Russia": "2",
-	"Philippiness": "2",
-	"India": "2",
-	"UK": "2",
-	"Nepal": "1",
-	"Cambodia": "1",
-	"Spain": "1",
-	"Finland": "1",
-	"Sweden": "1",
-	"Sri Lanka": "1"           		
-    }
+
+	"count": {
+		"total_confirmed": "17,348",
+		"toal_deaths": "362",
+		"total_recovered": "487"
+	},
+
+	"count_by_country": [{
+			"country": "Mainland China",
+			"count": "17,167"
+		}, {
+			"country": "Japan",
+			"count": "19"
+		}, {
+			"country": "Thailand",
+			"count": "19"
+		}, {
+			"country": "Singapore",
+			"count": "18"
+		}, {
+			"country": "Hong Kong",
+			"count": "15"
+		},
+		{
+			"country": "South Korea",
+			"count": "15"
+		}, {
+			"country": "Australia",
+			"count": "12"
+		}, {
+			"country": "Germany",
+			"count": "10"
+		}, {
+			"country": "Taiwan",
+			"count": "10"
+		}, {
+			"country": "US",
+			"count": "9"
+		},
+		{
+			"country": "Macau",
+			"count": "8"
+		}, {
+			"country": "Malaysia",
+			"count": "8"
+		}, {
+			"country": "France",
+			"count": "6"
+		}, {
+			"country": "Vietnam",
+			"count": "6"
+		}, {
+			"country": "United Arab Emirates",
+			"count": "5"
+		},
+		{
+			"country": "Canada",
+			"count": "4"
+		}, {
+			"country": "Italy",
+			"count": "2"
+		}, {
+			"country": "Russia",
+			"count": "2"
+		}, {
+			"country": "Philippiness",
+			"count": "2"
+		}, {
+			"country": "India",
+			"count": "2"
+		}, {
+			"country": "UK",
+			"count": "2"
+		}, {
+			"country": "Nepal",
+			"count": "1"
+		}, {
+			"country": "Cambodia",
+			"count": "1"
+		}, {
+			"country": "Spain",
+			"count": "1"
+		}, {
+			"country": "Finland",
+			"count": "1"
+		}, {
+			"country": "Sweden",
+			"count": "1"
+		}, {
+			"country": "Srilanka",
+			"count": "1"
+		}
+	]
 }

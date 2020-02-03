@@ -24,11 +24,11 @@ const HomeScreen = () => {
     return null;
   }
 
-  console.log(result.count);
+  console.log();
 
   return  (
     <SafeAreaView style={styles.safe} forceInset={{ top: 'always' }}>
-        {helpers.renderHeader()}
+        {helpers.renderHeader(result.count.total_confirmed, result.count.total_deaths)}
         {helpers.renderArticles()}
     </SafeAreaView>
   );
