@@ -1,6 +1,6 @@
-import {Block, Text} from '../components';
+import {Block, Text, ArticlesDetail} from '../components';
 import React from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet, ScrollView, FlatList, View} from 'react-native';
 
 const helpers = {
   renderHeader: function(confirmed, deaths) {
@@ -38,7 +38,8 @@ const helpers = {
   )
   },
 
-  renderArticles: function() {
+  renderArticles: function(articles) {
+
     return(
       <Block column flex={0.8} color="gray2" style={styles.articles}>
         <Block row space="between">
@@ -46,13 +47,24 @@ const helpers = {
           <Text semibold>View All</Text>
         </Block>
 
-        <ScrollView contentContainerStyle={{ flex: 1 }}>
+        <ScrollView>
+
+        <FlatList
+          data={articles}
+          renderItem={({ item }) =>
+            <Block card shadow>
+              <Text>{item.title}</Text>
+            </Block>
+          }
+          keyExtractor={item => item.url}
+          />
 
         </ScrollView>
 
       </Block>
     );
-  }
+  },
+
 }
 
 const styles = StyleSheet.create({

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'https://raw.githubusercontent.com/levimake/CoronaGuide_App/master/data/count',
-  headers : { }
+  baseURL: 'https://raw.githubusercontent.com/levimake/CoronaGuide_App/master/data/news',
+  headers : {
+  }
 });

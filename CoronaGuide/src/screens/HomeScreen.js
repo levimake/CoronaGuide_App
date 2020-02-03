@@ -6,30 +6,35 @@ import * as theme from '../../theme';
 import helpers from '../../components/helpers';
 import {useState, useEffect} from 'react';
 import datacount from '../api/datacount';
+import news from '../api/news';
 
 const HomeScreen = () => {
 
-  const [result, setResult] = useState(null);
+  const [countResult, setCountResult] = useState(null);
+  const [newsResult, setNewsResult] = useState(null);
 
-  const getResult = async (id) => {
-    const response = await datacount.get();
-    setResult(response.data);
+  const getResult = async () => {
+    const countResponse = await datacount.get();
+    const newsResponse = await news.get();
+    setCountResult(countResponse.data);
+    setNewsResult(newsResponse.data);
   };
 
   useEffect(() => {
     getResult();
   },[]);
 
-  if(!result) {
+  if(!countResult || !newsResult) {
     return null;
   }
 
-  console.log();
+  console.log(newsResult.articles);
+
 
   return  (
     <SafeAreaView style={styles.safe} forceInset={{ top: 'always' }}>
-        {helpers.renderHeader(result.count.total_confirmed, result.count.total_deaths)}
-        {helpers.renderArticles()}
+        {helpers.renderHeader(countResult.count.total_confirmed, countResult.count.total_deaths)}
+        {helpers.renderArticles(newsResult.articles)}
     </SafeAreaView>
   );
 
