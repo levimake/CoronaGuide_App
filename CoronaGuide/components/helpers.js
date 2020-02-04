@@ -26,24 +26,29 @@ const helpers = {
             </Block>
         </Block>
 
-        <Block flex={0.5} center row space="between" style={{ paddingHorizontal: 30, marginTop: 25, marginBottom: 20,}}>
+        <Block flex={0.25} center row space="between" style={{ paddingHorizontal: 30, marginTop: 25, marginBottom: 20,}}>
           <Text caption light>Confirmed</Text>
           <Text caption light>Deaths</Text>
         </Block>
-
-        <Block flex={1} row space="between" style={{ paddingHorizontal: 30, marginTop: 0}}>
-            <Block card shadow color="gray2" style={styles.header1}>
-              <Text primary semibold style={{ marginHorizontal: 5, textAlign: 'center', }}>Live Updates</Text>
-            </Block>
-            <Block center>
-              <Text primary semibold style={{ marginHorizontal: 5, textAlign: 'center', }}>Donate To China</Text>
-            </Block>
-            <Block center>
-              <Text primary semibold style={{ marginHorizontal: 5, textAlign: 'center', }}>Dos and Dont</Text>
-            </Block>
-        </Block>
-
       </Block>
+
+      <Block flex={0.25} center row space="between" style={{ marginBottom:20, marginTop: 17, }}>
+        <Block card1 shadow color="tertiary" style={{ marginTop:10, paddingHorizontal: 10, paddingVertical: 8,  }}>
+          <Block flex={0.25} center row space="between" style={{ paddingHorizontal: 5, marginTop: 25, marginBottom: 20,}}>
+            <Block column flex={0.3} >
+              <Text color="white" caption semibold style={{ textAlign: 'center', }}>Live Updates</Text>
+            </Block>
+            <Block column flex={0.3} >
+              <Text color="white" caption semibold style={{ textAlign: 'center', }}>Donate To Asia</Text>
+            </Block>
+            <Block column flex={0.3} >
+              <Text color="white" caption semibold style={{ textAlign: 'center', }}>Dos and Donts</Text>
+            </Block>
+
+          </Block>
+        </Block>
+      </Block>
+
     </Block>
 
 
@@ -65,9 +70,11 @@ const helpers = {
     );
   },
 
+
   renderArticles: function(articles) {
 
     return(
+
       <Block column flex={0.8} color="gray2" style={styles.articles}>
 
         <Block row space="between" style={{ paddingHorizontal: 20, marginBottom: -10 }}>
@@ -98,14 +105,11 @@ const styles = StyleSheet.create({
   header: {
     paddingTop: 30,
     paddingVertical: 45,
-    zIndex: 1,
-  },
-  header1: {
     zIndex: -1,
   },
   articles: {
-      marginTop: -50,
-      paddingTop: 65,
+      marginTop: -20,
+      paddingTop: 55,
       paddingHorizontal: 15,
       zIndex: -1,
   },

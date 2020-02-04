@@ -16,6 +16,7 @@ export default class Block extends Component {
       left,
       right,
       card,
+      card1,
       shadow,
       color,
       space,
@@ -34,6 +35,7 @@ export default class Block extends Component {
       left && styles.left,
       right && styles.right,
       card && styles.card,
+      card1 && styles.card1,
       shadow && styles.shadow,
       space && { justifyContent: `space-${space}` },
       color && styles[color],
@@ -62,6 +64,10 @@ const styles = StyleSheet.create({
   },
   card: {
     borderRadius: theme.sizes.border,
+  },
+  card1: {
+    borderBottomLeftRadius: theme.sizes.border,
+    borderBottomRightRadius: theme.sizes.border,
   },
   center: {
     alignItems: 'center',
