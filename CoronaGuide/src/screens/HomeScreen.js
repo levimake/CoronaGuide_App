@@ -7,8 +7,9 @@ import helpers from '../../components/helpers';
 import {useState, useEffect} from 'react';
 import datacount from '../api/datacount';
 import news from '../api/news';
+import { AppLoading } from 'expo';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
   const [countResult, setCountResult] = useState(null);
   const [newsResult, setNewsResult] = useState(null);
@@ -33,8 +34,10 @@ const HomeScreen = () => {
 
   return  (
     <SafeAreaView style={styles.safe} forceInset={{ top: 'always' }}>
-        {helpers.renderHeader(countResult.count.total_confirmed, countResult.count.total_deaths)}
+        {helpers.renderHeader(countResult.count.total_confirmed, countResult.count.total_deaths,
+                              countResult.count.total_recovered, navigation)}
         {helpers.renderArticles((newsResult.articles).slice(0,3))}
+        {helpers.renderAds()}
     </SafeAreaView>
   );
 

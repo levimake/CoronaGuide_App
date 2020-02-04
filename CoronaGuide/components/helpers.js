@@ -3,10 +3,11 @@ import React from 'react';
 import {StyleSheet,
         ScrollView, FlatList, View,
         TouchableOpacity, Image} from 'react-native';
+import { AdMobBanner, setTestDeviceIDAsync} from 'expo-ads-admob';
 
 
 const helpers = {
-  renderHeader: function(confirmed, deaths) {
+  renderHeader: function(confirmed, deaths, recovered, navigation) {
     return (
     <Block column flex={0.36} style={{ paddingHorizontal: 15, }}>
       <Block flex={false} row style={{ paddingVertical: 15, }}>
@@ -19,31 +20,38 @@ const helpers = {
 
         <Block row space="between" style={{ paddingHorizontal: 30, }}>
             <Block flex={false} row center >
-              <Text h1 semibold>{confirmed}</Text>
+              <Text h2 semibold>{confirmed}</Text>
+            </Block>
+            <Block flex={false} row center style={{ marginLeft: -20 }}>
+              <Text h2 primary semibold>{deaths}</Text>
             </Block>
             <Block flex={false} row center>
-              <Text h1 primary semibold>{deaths}</Text>
+              <Text h2 color="#2E8B57" semibold>{recovered}</Text>
             </Block>
         </Block>
 
         <Block flex={0.25} center row space="between" style={{ paddingHorizontal: 30, marginTop: 25, marginBottom: 20,}}>
           <Text caption light>Confirmed</Text>
           <Text caption light>Deaths</Text>
+          <Text caption light>Recovered</Text>
         </Block>
       </Block>
 
       <Block flex={0.25} center row space="between" style={{ marginBottom:20, marginTop: 17, }}>
-        <Block card1 shadow color="tertiary" style={{ marginTop:10, paddingHorizontal: 10, paddingVertical: 8,  }}>
+        <Block card1 shadow color="tertiary" style={{ marginTop:10, paddingHorizontal: 10, paddingVertical: 7,  }}>
           <Block flex={0.25} center row space="between" style={{ paddingHorizontal: 5, marginTop: 25, marginBottom: 20,}}>
-            <Block column flex={0.3} >
-              <Text color="white" caption semibold style={{ textAlign: 'center', }}>Live Updates</Text>
-            </Block>
-            <Block column flex={0.3} >
-              <Text color="white" caption semibold style={{ textAlign: 'center', }}>Donate To Asia</Text>
-            </Block>
-            <Block column flex={0.3} >
-              <Text color="white" caption semibold style={{ textAlign: 'center', }}>Dos and Donts</Text>
-            </Block>
+
+              <TouchableOpacity onPress={() => navigation.navigate("LiveUpdates")} style={{flex:0.5}}>
+                <Text color="white" caption semibold style={{ textAlign: 'center', }}>Live Updates</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => navigation.navigate("Donate")} style={{flex:0.5}}>
+              <Text color="white" caption semibold style={{ textAlign: 'center', }}>Donate To China</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => navigation.navigate("DosandDonts")} style={{flex:0.5}}>
+                <Text color="white" caption semibold style={{ textAlign: 'center', }}>Dos and Donts</Text>
+              </TouchableOpacity>
 
           </Block>
         </Block>
@@ -99,6 +107,16 @@ const helpers = {
     );
   },
 
+  renderAds: function() {
+    return (
+      <AdMobBanner
+      bannerSize="fullBanner"
+      adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
+      servePersonalizedAds // true or false
+      onDidFailToReceiveAdWithError={this.bannerError} />
+    );
+  }
+
 }
 
 const styles = StyleSheet.create({
@@ -108,7 +126,7 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   articles: {
-      marginTop: -20,
+      marginTop: -5,
       paddingTop: 55,
       paddingHorizontal: 15,
       zIndex: -1,

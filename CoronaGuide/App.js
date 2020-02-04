@@ -5,6 +5,10 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import HomeScreen from './src/screens/HomeScreen';
+import DonateScreen from './src/screens/DonateScreen';
+import LiveUpdatesScreen from './src/screens/LiveUpdatesScreen';
+import DosandDontsScreen from './src/screens/DosandDontsScreen';
+import * as theme from './theme.js';
 
 const MainNavigator = createStackNavigator({
   Home: {
@@ -13,6 +17,33 @@ const MainNavigator = createStackNavigator({
       headerShown: false,
     },
     headerMode: 'none',
+  },
+  Donate: {
+    screen: DonateScreen,
+    navigationOptions: {
+      title: 'Donate To China',
+      headerTintColor: '#ffffff',
+      headerStyle: { backgroundColor: theme.colors.primary },
+      headerTitleStyle: { color: theme.colors.white, fontSize: theme.sizes.h3, },
+    }
+  },
+  LiveUpdates: {
+    screen: LiveUpdatesScreen,
+    navigationOptions: {
+      title: 'Live Updates',
+      headerTintColor: '#ffffff',
+      headerStyle: { backgroundColor: theme.colors.primary },
+      headerTitleStyle: { color: theme.colors.white, fontSize: theme.sizes.h3, },
+    }
+  },
+  DosandDonts: {
+    screen: DosandDontsScreen,
+    navigationOptions: {
+      title: 'Dos and Donts',
+      headerTintColor: '#ffffff',
+      headerStyle: { backgroundColor: theme.colors.primary },
+      headerTitleStyle: { color: theme.colors.white, fontSize: theme.sizes.h3, },
+    }
   },
 
 },
@@ -29,9 +60,10 @@ export default class App extends Component {
 
   state = {
     fontLoaded: false,
+    adLoaded: false,
   };
 
-  async componentDidMount() {
+  loadingFonts = async() => {
     await Font.loadAsync({
       "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
       "Montserrat-Bold": require("./assets/fonts/Montserrat-Bold.ttf"),
@@ -39,8 +71,12 @@ export default class App extends Component {
       "Montserrat-Medium": require("./assets/fonts/Montserrat-Medium.ttf"),
       "Montserrat-Light": require("./assets/fonts/Montserrat-Light.ttf")
     });
+  }
 
+  async componentDidMount() {
+    this.loadingFonts();
     this.setState({ fontLoaded: true });
+    console.log("ads loaded");
   }
 
   render() {
