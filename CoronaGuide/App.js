@@ -57,9 +57,9 @@ const MainNavigator = createStackNavigator({
     }
   },
   SingleNews: {
-    screen: NewsScreen,
+    screen: SingleNewsScreen,
     navigationOptions: {
-      headerShown: 'false',
+      headerShown: false,
     },
     headerMode: 'none',
   },

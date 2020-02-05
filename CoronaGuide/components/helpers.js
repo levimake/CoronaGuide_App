@@ -63,35 +63,6 @@ const helpers = {
   )
   },
 
-  renderArticle: function(item, navigation) {
-    return (
-      <TouchableOpacity activeOpacity={0.8} onPress = { () => navigation.navigate("SingleNews", { url: item.url }) }>
-        <Block row card shadow color="white" style={styles.article}>
-          <Block flex={0.5}>
-            <Image style={styles.image} source={{ uri: item.urlToImage }} />
-          </Block>
-          <Block flex={1} column middle>
-            <Text>{item.title}</Text>
-          </Block>
-        </Block>
-      </TouchableOpacity>
-    );
-  },
-
-  renderAllArticle: function(item, navigation) {
-    return (
-      <TouchableOpacity activeOpacity={0.8} onPress = { () => navigation.navigate("SingleNews", { url: item.url }) }>
-        <Block row card shadow color="white" style={styles.article}>
-          <Block flex={0.5}>
-            <Image style={styles.image1} source={{ uri: item.urlToImage }} />
-          </Block>
-          <Block flex={0.8} column middle>
-            <Text caption semibold>{item.title}</Text>
-          </Block>
-        </Block>
-      </TouchableOpacity>
-    );
-  },
 
   renderArticles: function(articles, navigation) {
 
@@ -122,20 +93,54 @@ const helpers = {
   },
 
   renderAllArticles: function(articles, navigation) {
-    console.log("Hello");
     return (
-      <Block column flex={false} color="gray2" style={styles.articles, {paddingTop: 0, marginTop: -10, paddingHorizontal: 20,}}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={articles}
-          renderItem={({ item }) =>
-              this.renderAllArticle(item, navigation)
-          }
-          keyExtractor={item => item.url}
-          />
+      <Block column flex={ false } color="gray2" style={styles.articles, {paddingTop: 0, marginTop: -10, paddingHorizontal: 20,}}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={articles}
+            renderItem={({ item }) =>
+                this.renderAllArticle(item, navigation)
+            }
+            keyExtractor={item => item.url}
+            />
         </Block>
+
     );
   },
+
+  renderArticle: function(item, navigation) {
+    return (
+      <TouchableOpacity activeOpacity={0.8} onPress = { () => navigation.navigate("SingleNews", { url: item.url }) }>
+        <Block row card shadow color="white" style={styles.article}>
+          <Block flex={0.5}>
+            <Image style={styles.image} source={{ uri: item.urlToImage }} />
+          </Block>
+          <Block flex={1} column middle>
+            <Text>{item.title}</Text>
+          </Block>
+        </Block>
+      </TouchableOpacity>
+    );
+  },
+
+  renderAllArticle: function(item, navigation) {
+    return (
+
+      <TouchableOpacity activeOpacity={0.8} onPress = { () => navigation.navigate("SingleNews", { url: item.url }) }>
+        <Block row card shadow color="white" style={styles.article}>
+          <Block flex={0.5}>
+            <Image style={styles.image1} source={{ uri: item.urlToImage }} />
+          </Block>
+          <Block flex={0.8} column middle>
+            <Text caption semibold>{item.title}</Text>
+          </Block>
+        </Block>
+      </TouchableOpacity>
+
+
+    );
+  },
+
 
   renderAds: function() {
     return (
@@ -145,6 +150,70 @@ const helpers = {
       servePersonalizedAds // true or false
       onDidFailToReceiveAdWithError={this.bannerError} />
     );
+  },
+
+  renderLiveUpdates: function(confirmed, deaths, recovered) {
+    return (
+    <Block column flex={0.36} style={{ paddingHorizontal: 15, }}>
+
+      <Block card shadow color="white" style={styles.header, {paddingVertical: 60, marginTop: -10}}>
+
+        <Block row space="between" style={{ paddingHorizontal: 30, marginTop: -20, }}>
+            <Block flex={false} row center >
+              <Text h2 semibold>{ confirmed }</Text>
+            </Block>
+            <Block flex={false} row center style={{ marginLeft: -20 }}>
+              <Text h2 primary semibold>{ deaths }</Text>
+            </Block>
+            <Block flex={false} row center>
+              <Text h2 color="#2E8B57" semibold>{ recovered }</Text>
+            </Block>
+        </Block>
+
+        <Block flex={0.25} center row space="between" style={{ paddingHorizontal: 30, marginTop: 25, marginBottom: 20,}}>
+          <Text caption light>Confirmed</Text>
+          <Text caption light>Deaths</Text>
+          <Text caption light>Recovered</Text>
+        </Block>
+      </Block>
+
+    </Block>
+
+);
+  },
+
+  renderCountryUpdate: function(item) {
+    return (
+      <Block row style={{ padding: 10, paddingHorizontal: 30 }}>
+        <Block center space="between"  flex={1} column middle>
+          <Text caption>{item.country}</Text>
+        </Block>
+        <Block center space="between" flex={1} column middle>
+          <Text caption>{item.count}</Text>
+        </Block>
+      </Block>
+    );
+  },
+
+  renderCountryUpdates: function(count_by_country) {
+
+    return (
+
+        <Block column flex={0.7} style={{marginTop:-60, paddingHorizontal: 25}} color="gray2">
+          <Text semibold style={{padding: 10, textAlign: 'center', fontSize: 15}}>Confirmed Cases by Country/Region</Text>
+          <Block card shadow color="white" style={{paddingHorizontal: 10, marginBottom: 5,}}>
+          <FlatList
+            showsVerticalScrollIndicator={true}
+            data={count_by_country}
+            renderItem={({ item }) =>
+                this.renderCountryUpdate(item)
+            }
+            keyExtractor={item => item.country}
+            />
+          </Block>
+        </Block>
+    );
+
   }
 
 }
