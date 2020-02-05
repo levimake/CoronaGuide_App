@@ -36,7 +36,7 @@ const HomeScreen = ({navigation}) => {
     <SafeAreaView style={styles.safe} forceInset={{ top: 'always' }}>
         {helpers.renderHeader(countResult.count.total_confirmed, countResult.count.total_deaths,
                               countResult.count.total_recovered, navigation)}
-        {helpers.renderArticles((newsResult.articles).slice(0,3))}
+        {helpers.renderArticles((newsResult.articles), navigation)}
         {helpers.renderAds()}
     </SafeAreaView>
   );

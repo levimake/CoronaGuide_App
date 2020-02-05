@@ -1,7 +1,7 @@
 import React from 'react';
 import { WebView } from 'react-native-webview';
 
-const DonateScreen = ({navigation}) => {
+const SingleNewsScreen = ({navigation}) => {
 
   let  jsCode = `
     document.querySelector('#footer').style.display='none';
@@ -20,4 +20,4 @@ const DonateScreen = ({navigation}) => {
 
 }
 
-export default DonateScreen;
+export default SingleNewsScreen;

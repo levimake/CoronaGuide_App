@@ -8,6 +8,8 @@ import HomeScreen from './src/screens/HomeScreen';
 import DonateScreen from './src/screens/DonateScreen';
 import LiveUpdatesScreen from './src/screens/LiveUpdatesScreen';
 import DosandDontsScreen from './src/screens/DosandDontsScreen';
+import NewsScreen from './src/screens/NewsScreen';
+import SingleNewsScreen from './src/screens/SingleNewsScreen';
 import * as theme from './theme.js';
 
 const MainNavigator = createStackNavigator({
@@ -45,7 +47,22 @@ const MainNavigator = createStackNavigator({
       headerTitleStyle: { color: theme.colors.white, fontSize: theme.sizes.h3, },
     }
   },
-
+  News: {
+    screen: NewsScreen,
+    navigationOptions: {
+      title: 'Latest News',
+      headerTintColor: '#ffffff',
+      headerStyle: { backgroundColor: theme.colors.primary },
+      headerTitleStyle: { color: theme.colors.white, fontSize: theme.sizes.h3, },
+    }
+  },
+  SingleNews: {
+    screen: NewsScreen,
+    navigationOptions: {
+      headerShown: 'false',
+    },
+    headerMode: 'none',
+  },
 },
   {
   initialRouteName: 'Home',

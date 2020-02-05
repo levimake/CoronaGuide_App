@@ -45,7 +45,7 @@ const helpers = {
                 <Text color="white" caption semibold style={{ textAlign: 'center', }}>Live Updates</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => navigation.navigate("Donate")} style={{flex:0.5}}>
+              <TouchableOpacity onPress={() => navigation.navigate("Donate", { url: 'https://give2asia.org/donate-china-coronavirus-fund/' })} style={{flex:0.5}}>
               <Text color="white" caption semibold style={{ textAlign: 'center', }}>Donate To China</Text>
               </TouchableOpacity>
 
@@ -63,14 +63,14 @@ const helpers = {
   )
   },
 
-  renderArticle: function(item) {
+  renderArticle: function(item, navigation) {
     return (
-      <TouchableOpacity activeOpacity={0.8}>
+      <TouchableOpacity activeOpacity={0.8} onPress = { () => navigation.navigate("SingleNews", { url: item.url }) }>
         <Block row card shadow color="white" style={styles.article}>
           <Block flex={0.5}>
             <Image style={styles.image} source={{ uri: item.urlToImage }} />
           </Block>
-          <Block flex={2} column middle>
+          <Block flex={1} column middle>
             <Text>{item.title}</Text>
           </Block>
         </Block>
@@ -78,8 +78,22 @@ const helpers = {
     );
   },
 
+  renderAllArticle: function(item, navigation) {
+    return (
+      <TouchableOpacity activeOpacity={0.8} onPress = { () => navigation.navigate("SingleNews", { url: item.url }) }>
+        <Block row card shadow color="white" style={styles.article}>
+          <Block flex={0.5}>
+            <Image style={styles.image1} source={{ uri: item.urlToImage }} />
+          </Block>
+          <Block flex={0.8} column middle>
+            <Text caption semibold>{item.title}</Text>
+          </Block>
+        </Block>
+      </TouchableOpacity>
+    );
+  },
 
-  renderArticles: function(articles) {
+  renderArticles: function(articles, navigation) {
 
     return(
 
@@ -87,7 +101,7 @@ const helpers = {
 
         <Block row space="between" style={{ paddingHorizontal: 20, marginBottom: -10 }}>
           <Text light>Latest News</Text>
-          <TouchableOpacity activeOpacity={0.8}>
+          <TouchableOpacity activeOpacity={0.8} onPress = { () => navigation.navigate("News", { articles: articles }) }>
             <Text semibold>View All</Text>
           </TouchableOpacity>
         </Block>
@@ -95,15 +109,31 @@ const helpers = {
         <Block row flex={8.0}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={articles}
+          data={articles.slice(0,3)}
           renderItem={({ item }) =>
-              this.renderArticle(item)
+              this.renderArticle(item, navigation)
           }
           keyExtractor={item => item.url}
           />
         </Block>
 
       </Block>
+    );
+  },
+
+  renderAllArticles: function(articles, navigation) {
+    console.log("Hello");
+    return (
+      <Block column flex={false} color="gray2" style={styles.articles, {paddingTop: 0, marginTop: -10, paddingHorizontal: 20,}}>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={articles}
+          renderItem={({ item }) =>
+              this.renderAllArticle(item, navigation)
+          }
+          keyExtractor={item => item.url}
+          />
+        </Block>
     );
   },
 
@@ -136,9 +166,16 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   image: {
-    height: 40,
-    width: 40,
-    borderRadius: 40,
+    height: 60,
+    width: 60,
+    borderRadius: 60,
+    marginVertical: 5,
+    overflow: "hidden",
+  },
+  image1: {
+    height: 96,
+    width: 96,
+    borderRadius: 96,
     marginVertical: 5,
     overflow: "hidden",
   },
