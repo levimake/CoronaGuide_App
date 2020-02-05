@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import React, {Component} from 'react';
 import * as theme from '../theme';
 
 export default class Block extends Component {

@@ -216,8 +216,28 @@ const helpers = {
 
   },
 
-  renderDosAndDonts: function() {
-    
+  renderDosAndDont: function(item) {
+    console.log(item.dos);
+    return (
+      <Block row style={{ padding: 10, paddingHorizontal: 30, borderBottomColor: "#ccc", borderBottomWidth: 1 }}>
+        <Text caption style={{ }}>{item.dos}</Text>
+      </Block>
+    );
+  },
+
+  renderDosAndDonts: function(dosAndDonts) {
+    return (
+      <Block column flex={1} style={{paddingHorizontal: 5}} color="white">
+        <FlatList
+          showsVerticalScrollIndicator={true}
+          data={dosAndDonts}
+          renderItem={({ item }) =>
+              this.renderDosAndDont(item)
+          }
+          keyExtractor={item => item.key}
+          />
+        </Block>
+    );
   }
 
 }

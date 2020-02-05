@@ -28,6 +28,7 @@ const DosandDontsScreen = () => {
   return (
     <SafeAreaView style={styles.safe} forceInset={{ top: 'always' }}>
       { helpers.renderDosAndDonts(dosAndDontsResult.dos_and_donts) }
+      { helpers.renderAds() }
     </SafeAreaView>
   );
 }
