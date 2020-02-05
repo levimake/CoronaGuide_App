@@ -1,36 +1,47 @@
 {
 	"dos_and_donts": [{
-			"1": "Observe good personal hygiene"
+			"key": "1",
+			"dos": "Observe good personal hygiene"
 		},
 		{
-			"2": "Practice frequent hand washing with soap"
+			"key": "2",
+			"dos": "Practice frequent hand washing with soap"
 		},
 		{
-			"3": "Follow respiratory etiquettes — cover your mouth when coughing or sneezing"
+			"key": "3",
+			"dos" : "Follow respiratory etiquettes — cover your mouth when coughing or sneezing"
 		},
 		{
-			"4": "Wear a mask if you have respiratory symptoms such as cough or running nose"
+			"key": "4",
+			"dos" : "Wear a mask if you have respiratory symptoms such as cough or running nose"
 		},
 		{
-			"5": "Cover your mouth while coughing or sneezing"
+			"key": "5",
+			"dos": "Cover your mouth while coughing or sneezing"
 		},
 		{
-			"6": "Seek medical attention promptly"
+			"key": "6",
+			"dos" : "Seek medical attention promptly"
 		},
 		{
-			"7": "Don’t plan travels if sick"
+			"key": "7",
+			"dos" : "Don’t plan travels if sick"
 		},
 		{
-			"8": "Don’t travel to China if not essential"
+			"key": "8",
+			"dos": "Don’t travel to China if not essential"
 		},
 		{
-			"9": "Avoid close contact with people who are unwell or showing symptoms of illness, such as cough, running nose etc."
+			"key": "9",
+			"dos": "Avoid close contact with people who are unwell or showing symptoms of illness, such as cough, running nose etc."
 		},
 		{
-			"10": "Avoid contact with live animals and consumption of raw/undercooked meats"
+			"key": "10",
+			"dos": "Avoid contact with live animals and consumption of raw/undercooked meats"
 		},
 		{
-			"11": "Avoid travel to farms, live animal markets or where animals are slaughtered"
+			"key": "11",
+			"dos": "Avoid travel to farms, live animal markets or where animals are slaughtered"
 		}
 	]
 }

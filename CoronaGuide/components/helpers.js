@@ -214,6 +214,10 @@ const helpers = {
         </Block>
     );
 
+  },
+
+  renderDosAndDonts: function() {
+    
   }
 
 }
