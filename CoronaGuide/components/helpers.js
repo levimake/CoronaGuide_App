@@ -146,7 +146,7 @@ const helpers = {
     return (
       <AdMobBanner
       bannerSize="fullBanner"
-      adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
+      adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id - replaced
       servePersonalizedAds // true or false
       onDidFailToReceiveAdWithError={this.bannerError}
       style={{ backgroundColor: '#fff' }}/>
@@ -221,7 +221,7 @@ const helpers = {
     console.log(item.dos);
     return (
       <Block row style={{ padding: 10, paddingHorizontal: 30, borderBottomColor: "#ccc", borderBottomWidth: 1 }}>
-        <Text caption style={{ }}>{item.dos}</Text>
+        <Text style={{ fontSize: 14 }}>{item.dos}</Text>
       </Block>
     );
   },

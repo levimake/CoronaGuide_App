@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Corona Guide",
-    "slug": "CoronaGuide",
+    "name": "Stay Safe From CoronaVirus",
+    "slug": "StaySafeFromCoronavirus",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -30,9 +30,14 @@
       }
     },
     "android": {
+      "package": "com.levimake.staysafefromcoronavirus",
+      "versionCode": 1,
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-1201897939901367~9747221603"
-      }
+      },
+      "permissions": [
+
+      ],
     }
   }
 }
