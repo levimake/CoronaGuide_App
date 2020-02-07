@@ -1,17 +1,17 @@
 {
 
 	"count": {
-		"total_confirmed": "17,348",
-		"total_deaths": "362",
-		"total_recovered": "487"
+		"total_confirmed": "31,527",
+		"total_deaths": "638",
+		"total_recovered": "1,764"
 	},
 
 	"count_by_country": [{
 			"country": "Mainland China",
-			"count": "17,167"
+			"count": "31,213"
 		}, {
 			"country": "Japan",
-			"count": "19"
+			"count": "25"
 		}, {
 			"country": "Thailand",
 			"count": "19"
