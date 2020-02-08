@@ -1,0 +1,4 @@
+#Sat Feb 08 15:49:58 IST 2020
+base.0=/home/levis/SSFC/StaySafeFromCorona/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,10 +1,9 @@
-import {Block, Text, ArticlesDetail} from '../components';
+import {Block, Text} from '../components';
 import React from 'react';
 import {StyleSheet,
         ScrollView, FlatList, View,
         TouchableOpacity, Image} from 'react-native';
-import { AdMobBanner, setTestDeviceIDAsync} from 'expo-ads-admob';
-
+import { AdMobBanner } from 'react-native-admob';
 
 const helpers = {
   renderHeader: function(confirmed, deaths, recovered, navigation) {
@@ -145,25 +144,25 @@ const helpers = {
   renderAds: function() {
     return (
       <AdMobBanner
-      bannerSize="fullBanner"
-      adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id - replaced
-      servePersonalizedAds // true or false
-      onDidFailToReceiveAdWithError={this.bannerError}
-      style={{ backgroundColor: '#fff' }}/>
+        adSize="fullBanner"
+        adUnitID="ca-app-pub-3940256099942544/6300978111" //its test adUnitId
+        testDevices={[AdMobBanner.simulatorId]}
+        //onAdFailedToLoad={error => console.error(error)}
+      />
     );
   },
 
   renderLiveUpdates: function(confirmed, deaths, recovered) {
     return (
-    <Block column flex={0.36} style={{ paddingHorizontal: 15, }}>
+    <Block column flex={0.36} style={{ paddingHorizontal: 15, marginTop: 20 }}>
 
-      <Block card shadow color="white" style={styles.header, {paddingVertical: 60, marginTop: -10}}>
+      <Block card shadow color="white" style={styles.header, {paddingVertical: 100, marginTop: 5}}>
 
-        <Block row space="between" style={{ paddingHorizontal: 30, marginTop: -20, }}>
+        <Block row space="between" style={{ paddingHorizontal: 30, marginTop: -50, }}>
             <Block flex={false} row center >
               <Text h2 semibold>{ confirmed }</Text>
             </Block>
-            <Block flex={false} row center style={{ marginLeft: -20 }}>
+            <Block flex={false} row center style={{ marginLeft: 0 }}>
               <Text h2 primary semibold>{ deaths }</Text>
             </Block>
             <Block flex={false} row center>
