@@ -1,11 +1,10 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import dosAndDonts from '../api/dosAndDonts';
-import {View, StyleSheet, ScrollView} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
-import { Block, Text } from '../../components';
-import * as theme from '../../theme';
 import helpers from '../../components/helpers';
+import { StyleSheet } from 'react-native';
+
 
 
 const DosandDontsScreen = () => {
@@ -36,7 +35,7 @@ const DosandDontsScreen = () => {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: theme.colors.white,
+    backgroundColor: 'white',
     //alignItems: 'center',
     //justifyContent: 'center',
   },

@@ -1,10 +1,8 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import datacount from '../api/datacount';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
-import { Block, Text } from '../../components';
-import * as theme from '../../theme';
 import helpers from '../../components/helpers';
 
 const LiveUpdatesScreen = () => {
@@ -36,7 +34,7 @@ const LiveUpdatesScreen = () => {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: '#D61B1F',
     //alignItems: 'center',
     //justifyContent: 'center',
   },

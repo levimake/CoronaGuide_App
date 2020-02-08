@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
@@ -11,6 +9,26 @@ import DosandDontsScreen from './src/screens/DosandDontsScreen';
 import NewsScreen from './src/screens/NewsScreen';
 import SingleNewsScreen from './src/screens/SingleNewsScreen';
 import * as theme from './theme.js';
+import { StyleSheet } from 'react-native';
+import { Block, Text } from './components';
+
+class SplashScreen extends React.Component {
+  render() {
+
+    return (
+      <Block middle color="primary" style={ styles.container } flex={1}>
+        <Block left column flex={1} middle style={{ paddingHorizontal: 20, justifyContent: 'center',  }}>
+          <Text h1 color="white" style={{ letterSpacing: 1 }}>Stay Safe</Text>
+          <Text h2 light color="white" style={{ letterSpacing: 1 }}>From</Text>
+          <Text h1 bold color="white" style={{ letterSpacing: 1 }}>Coronavirus</Text>
+        </Block>
+        <Block center middle row flex={0.2} style={{ paddingHorizontal: 20 }}>
+          <Text h3 light color="white" style={{ textAlign: 'center', letterSpacing: 3 }}>FROM  LEVIMAKE</Text>
+        </Block>
+      </Block>
+    );
+  }
+}
 
 const MainNavigator = createStackNavigator({
   Home: {
@@ -75,41 +93,50 @@ const RootApp = createAppContainer(MainNavigator);
 
 export default class App extends Component {
 
-  state = {
-    fontLoaded: false,
-    adLoaded: false,
-  };
+  constructor(props) {
+  super(props);
 
-  loadingFonts = async() => {
-    await Font.loadAsync({
-      "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
-      "Montserrat-Bold": require("./assets/fonts/Montserrat-Bold.ttf"),
-      "Montserrat-SemiBold": require("./assets/fonts/Montserrat-SemiBold.ttf"),
-      "Montserrat-Medium": require("./assets/fonts/Montserrat-Medium.ttf"),
-      "Montserrat-Light": require("./assets/fonts/Montserrat-Light.ttf")
-    });
-  }
+  this.state = { isLoading: true }
+}
 
-  async componentDidMount() {
-    this.loadingFonts();
-    this.setState({ fontLoaded: true });
-    console.log("ads loaded");
+performTimeConsumingTask = async() => {
+  return new Promise((resolve) =>
+    setTimeout(
+      () => { resolve('result') },
+      2000
+    )
+  );
+}
+
+async componentDidMount() {
+  // Preload data from an external API
+  // Preload data using AsyncStorage
+  const data = await this.performTimeConsumingTask();
+
+  if (data !== null) {
+    this.setState({ isLoading: false });
   }
+}
+
 
   render() {
 
-      if(!this.state.fontLoaded) {
-        return <AppLoading />
-      }
+    if (this.state.isLoading) {
+      return <SplashScreen />;
+    }
 
-      else {
         return (
           <SafeAreaProvider>
             <RootApp />
           </SafeAreaProvider>
         );
-      }
 
   }
 
 }
+
+const styles = StyleSheet.create({
+    container: {
+
+    }
+})

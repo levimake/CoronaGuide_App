@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
 import helpers from '../../components/helpers';
 import SafeAreaView from 'react-native-safe-area-view';
+import { StyleSheet } from 'react-native';
 
 const NewsScreen = ({ navigation }) => {
   return (
@@ -11,6 +11,13 @@ const NewsScreen = ({ navigation }) => {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  safe: {
+    flex: 1,
+    backgroundColor: '#D61B1F',
+    //alignItems: 'center',
+    //justifyContent: 'center',
+  },
+});
 
 export default NewsScreen;

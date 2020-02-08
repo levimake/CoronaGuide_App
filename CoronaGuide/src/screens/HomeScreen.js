@@ -1,13 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
-import { Block, Text } from '../../components';
 import * as theme from '../../theme';
 import helpers from '../../components/helpers';
 import {useState, useEffect} from 'react';
 import datacount from '../api/datacount';
 import news from '../api/news';
-import { AppLoading } from 'expo';
 
 const HomeScreen = ({navigation}) => {
 
